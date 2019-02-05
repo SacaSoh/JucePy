@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inativos
+{% endblock %}
+
+{% block main %}
+    <script src="/static/scripts_Inativos.js"></script>
+    <header>
+      <div class="headerwrap">
+        <h3>Processos Inativos</h3>
+      </div>
+    </header>
+    <table id="inativos" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Data de Evento</th>
+                <th>Processo nº</th>
+                <th>UF</th>
+                <th>Empresa</th>
+                <th>Descrição do Ato</th>
+                <th>Situação</th>
+                <th>Data de Aprovação</th>
+                <th>Pendências</th>
+                <th>NIRE</th>
+                <th>CNPJ</th>
+                <th>Responsável por Inclusão</th>
+                <th>Responsável por Conclusão</th>
+                <th>Data de Entrada no sistema JUCEC</th>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}

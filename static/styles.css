@@ -1,0 +1,153 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+
+    margin: 5px
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+
+}
+
+.container-fluid {
+
+  padding: 20px;
+  overflow: hidden;
+
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+    /* invalid input red border feedback */
+input[aria-invalid="true"], textarea[aria-invalid="true"]
+{
+  border: 1px solid #f00;
+  box-shadow: 0 0 4px 0 #f00;
+}
+
+    /* error and info messages - sauce: https://isabelcastillo.com/error-info-messages-css */
+.isa_info, .isa_success, .isa_warning, .isa_error {
+margin: 10px 0px;
+padding:12px;
+
+}
+.isa_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.isa_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border: 1px #f00;
+    box-shadow: 0 0 4px 0 #f00;
+}
+.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+    margin:10px 22px;
+    font-size:2em;
+    vertical-align:middle;
+}
+
+.mainheader {
+    background-color: #0000ff;
+    color: white;
+    padding: 8px;
+}
+
+.mainheader-inativos {
+    background-color: #ffff99;
+    color: black;
+    padding: 8px;
+}
+
+/* Datatable icons */
+td.details-control {
+    background: url('../static/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+.shown td.details-control {
+    background: url('../static/details_close.png') no-repeat center center;
+}
+
+.dontwrap {
+
+  white-space: nowrap;
+
+}
+
+.headerwrap {
+  width: 100%;
+  margin: 10px;
+  padding: 5px;
+  color:  #00529B;
+  font-size: 10px;
+}
+
+.display {
+    font-size: 12px
+}
+
+.historico > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f7d891;
+}
+
+.histheader {
+   background-color: #f5b82e;
+   text-align: center
+}
+
+.slider {
+    display: none;
+}
+
+#example tr td {
+    height: 50px;
+    max-height: 80px
+}

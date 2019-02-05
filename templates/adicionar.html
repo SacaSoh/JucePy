@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Adicionar Processo ao Acompanhamento
+{% endblock %}
+
+{% block main %}
+    <form action="/adicionar" method="post" style= "height:50%">
+        <div class="form-group">
+            <input
+            autocomplete="off"
+            autofocus class="form-control"
+            name="protocolno"
+            placeholder="12/345.678-9"
+            maxlength="12"
+            aria-required="true"
+            required="required"
+            pattern="[0-9]{2}[\/]?[0-9]{3}[\.]?[0-9]{3}[\-]?[0-9]{1}"
+            size=12
+            title="Insira os 9 números sem pontuação."
+            spellcheck="false"
+            value=""
+            onblur="mask(this, '00/000.000-0', event);"
+            onkeypress="mask(this, '00/000.000-0', event);"/>
+        </div>
+            <select class="form-control" name="uf" >
+                    <option disabled value="AC">Acre</option>
+                    <option disabled value="AL">Alagoas</option>
+                    <option disabled value="AP">Amapá</option>
+                    <option disabled value="AM">Amazonas</option>
+                    <option disabled value="BA">Bahia</option>
+                    <option value="CE" selected>Ceará</option>
+                    <option disabled value="DF">Distrito Federal</option>
+                    <option disabled value="ES">Espírito Santo</option>
+                    <option disabled value="GO">Goiás</option>
+                    <option disabled value="MA">Maranhão</option>
+                    <option disabled value="MT">Mato Grosso</option>
+                    <option disabled value="MS">Mato Grosso do Sul</option>
+                    <option disabled value="MG">Minas Gerais</option>
+                    <option disabled value="PA">Pará</option>
+                    <option disabled value="PB">Paraíba</option>
+                    <option disabled value="PR">Paraná</option>
+                    <option disabled value="PE">Pernambuco</option>
+                    <option disabled value="PI">Piauí</option>
+                    <option disabled value="RJ">Rio de Janeiro</option>
+                    <option disabled value="RN">Rio Grande do Norte</option>
+                    <option disabled value="RS">Rio Grande do Sul</option>
+                    <option disabled value="RO">Rondônia</option>
+                    <option disabled value="RR">Roraima</option>
+                    <option disabled value="SC">Santa Catarina</option>
+                    <option disabled value="SP">São Paulo</option>
+                    <option disabled value="SE">Sergipe</option>
+                    <option disabled value="TO">Tocantins</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea
+            rows=3
+            cols=40
+            autofocus class="form-control"
+            autocomplete="off"
+            name="descricao"
+            maxlength=120
+            placeholder="Descrição do Ato."
+            aria-required="true"
+            required="required"
+            spellcheck="true"
+            title="Insira a descrição do ato."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Adicionar ao Acompanhamento</button>
+    </form>
+
+    <!-- Input mask -->
+    <!-- script function source (adapted): portalservicos.jucec.ce.gov.br/Portal/pages/consultaProcesso.jsf -->
+    <script>
+
+    function mask(field, Mask, event) {
+	var boleanMask;
+	var protocol = event.keyCode;
+	exp = /\-|\.|\/|\(|\)| /g
+	Field_OnlyNumbers = field.value.toString().replace( exp, "" );
+	var FieldPos = 0;
+	var NewFieldVal="";
+	var MaskSize = Field_OnlyNumbers.length;;
+	if (protocol != 8) { // backspace
+	for(i=0; i<= MaskSize; i++) {
+		boleanMask  = ((Mask.charAt(i) == "-") || (Mask.charAt(i) == ".") || (Mask.charAt(i) == "/"))
+		boleanMask  = boleanMask || ((Mask.charAt(i) == "(") || (Mask.charAt(i) == ")") || (Mask.charAt(i) == " "))
+		if (boleanMask) {
+			NewFieldVal += Mask.charAt(i);
+			MaskSize++;
+		}else {
+			NewFieldVal += Field_OnlyNumbers.charAt(FieldPos);
+			FieldPos++;
+		}
+	}
+	field.value = NewFieldVal;
+	return true;
+	}else {
+	        return true;
+	}
+    }
+    </script>
+
+{% endblock %}

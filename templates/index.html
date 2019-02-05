@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <script src="/static/scripts_Index.js"></script>
+    <header>
+      <div class="headerwrap bg-light border">
+        <h3>Processos Ativos</h3>
+      </div>
+    </header>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Data de Evento</th>
+                <th>Processo nº</th>
+                <th>UF</th>
+                <th>Empresa</th>
+                <th>Descrição do Ato</th>
+                <th>Situação</th>
+                <th>Data de Aprovação</th>
+                <th>Pendências</th>
+                <th>NIRE</th>
+                <th>CNPJ</th>
+                <th>Responsável por Inclusão</th>
+                <th>Data de Entrada no sistema JUCEC</th>
+                <th>Finalizar Processo</th>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}

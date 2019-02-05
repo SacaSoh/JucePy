@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registrar Usuário
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input
+            autocomplete="off"
+            autofocus class="form-control"
+            name="username"
+            placeholder="Nome de Usuário"
+            title="5 a 26 caracteres alfanuméricos"
+            type="text"
+            maxlength=26
+            minlength=5
+            required:"required"
+            aria-required="true"
+            pattern:"[A-Za-z]{5,26}"
+            spellcheck="false"/>
+        </div>
+        <div class="form-group">
+            <input
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Password"
+            type="password"
+            required:"required"
+            aria-required="true"
+            maxlength=16
+            minlength=8
+            title="8 a 16 caracteres alphanuméricos"
+            pattern:"\w{8,16}"
+            spellcheck="false"/>
+        </div>
+        <div class="form-group">
+            <input
+            class="form-control"
+            name="confirmation"
+            id="confirmation"
+            maxlength=16
+            minlength=8
+            placeholder="Repetir Password"
+            required:"required"
+            aria-required="true"
+            type="password"
+            spellcheck="false"/>
+            </div>
+            <p>
+            <span id='message'></span>
+            </p>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+
+    <!-- Password Matching -->
+    <!-- script function source (adapted): https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page -->
+    <script>
+
+    $('#password, #confirmation').on('keyup', function () {
+        if ($('#password').val() != $('#confirmation').val()) {
+            $('#message').html('A palavra-chave introduzida e a repetição de validação não coincidem.').css('color', 'red');
+        } else
+            $('#message').html('Password e confirmação coincidem.').css('color', 'green');
+    });
+
+    </script>
+
+{% endblock %}

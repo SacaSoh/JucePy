@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Histórico
+{% endblock %}
+
+{% block main %}
+{% if historicono != 0 %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="12" class = "mainheader">Histórico do Processo</th>
+    </tr>
+    <tr>
+        <th>Data de Evento</th>
+        <th>Processo nº</th>
+        <th>UF</th>
+        <th>Empresa</th>
+        <th>Descrição do Ato</th>
+        <th>Status</th>
+        <th>Pendências</th>
+        <th>NIRE</th>
+        <th>CNPJ</th>
+        <th>Responsável por Inclusão</th>
+        <th>Responsável por Conclusão</th>
+        <th>Data de Entrada no sistema JUCEC</th>
+    </tr>
+  </thead>
+  <tbody>
+{% endif %}
+
+    {% if historicono == 0 %}
+        <div class="isa_warning border text-center" role="alert">
+             <i class="fa fa-info-circle"></i>
+             <strong>Não existe histórico para este processo!</strong>
+        </div>
+    {% endif %}
+
+    {% if historicono != 0 %}
+    {% for i in range(historicono) %}
+          <td>{{ historicoinfo[i]['timestamp'] }}</td>
+          <td>{{ historicoinfo[i]['protocol'] }}</td>
+          <td>{{ historicoinfo[i]['uf'] }}</td>
+          <td>{{ historicoinfo[i]['nomeemp'] }}</td>
+          <td>{{ historicoinfo[i]['descricao'] }}</td>
+        {% if historicoinfo[i]['dataaprovacao'] != 'N/A' %}
+          <td>{{ historicoinfo[i]['status'] }} Data de Aprovação: {{ historicoinfo[i]['dataaprovacao'] }}</td>
+        {% endif %}
+        {% if historicoinfo[i]['dataaprovacao'] == 'N/A' %}
+          <td>{{ historicoinfo[i]['status'] }}</td>
+        {% endif %}
+          <td>{{ historicoinfo[i]['msgjucec'] }}</td>
+          <td>{{ historicoinfo[i]['nire'] }}</td>
+          <td>{{ historicoinfo[i]['cnpj'] }}</td>
+          <td>{{ historicoinfo[i]['respadd'] }}</td>
+          <td>{{ historicoinfo[i]['respbaixa'] }}</td>
+          <td>{{ historicoinfo[i]['dataentrada'] }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
