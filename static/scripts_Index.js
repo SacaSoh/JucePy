@@ -74,7 +74,7 @@ $(document).ready(function() {
         scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
-        paging:         false,
+        paging:         true,
 		columnDefs: [
             { width: 260, targets: 8 }
         ],
@@ -86,17 +86,26 @@ $(document).ready(function() {
                 "defaultContent": ''
             },
             { "data": "timestamp"},
-            { "data": "protocol" },
-            { "data": "uf" },
+            { "data": "protocol",
+                    render: function ( data, type, row ) {
+                    return row.protocol + '<br>(' + row.uf + ')';
+                    }
+            },
             { "data": "nomeemp" },
             { "data": "descricao" },
             { "data": "status" },
             { "data": "dataaprovacao" },
             { "data": "msgjucec" },
-            { "data": "nire"},
-            { "data": "cnpj"},
-            { "data": "respadd" },
-            { "data": "dataentrada"},
+            { "data": "cnpj",
+                    render: function ( data, type, row ) {
+                    return row.cnpj + '<br>' + row.nire + '';
+                    }
+            },
+            { "data": "respadd",
+                    render: function ( data, type, row ) {
+                    return row.respadd + '<br>(' + row.dataentrada + ')';
+                    }
+            },
             {  "className":      'finalizarprocesso',
                 "orderable":      false,
                 "data":           null,
