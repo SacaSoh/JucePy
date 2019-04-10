@@ -3,13 +3,21 @@ import sys
 import threading
 from tempfile import mkdtemp
 
+# deal with werkzeug deprecation warnings as of version 0.15
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, jsonify
 from flask_session import Session
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
 
+# deprecation warning - import have to be done here to avoid the warning on indirect import
+from werkzeug.contrib.cache import FileSystemCache
+
 from helpers import login_required, ThreadedUpdate, ThreadedSingleUpdate
+
 
 """
 update active Trade Board processes after a set time - it uses threading to avoid the halting of listening 

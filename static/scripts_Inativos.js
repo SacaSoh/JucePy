@@ -74,7 +74,7 @@ $(document).ready(function() {
         scrollY:        true,
         scrollX:        true,
         scrollCollapse: true,
-        paging:         false,
+        paging:         true,
 		columnDefs: [
             { width: 275, targets: 8 }
         ],
